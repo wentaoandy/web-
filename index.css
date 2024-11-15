@@ -1,0 +1,93 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    overflow: hidden;
+}
+
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    transition: transform 2s;
+}
+
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 1s infinite;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+#text-container {
+    color: white;
+    font-size: 2em;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    z-index: 2;
+}
+
+#start-btn {
+    display: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#start-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.black-hole {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 50px;
+    height: 50px;
+    background: #000;
+    border-radius: 50%;
+    box-shadow: 0 0 50px 20px rgba(0, 0, 0, 0.8);
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.black-hole.active {
+    transform: translate(-50%, -50%) scale(20);
+    opacity: 1;
+}
+
+.stars.pulled {
+    transform: scale(0);
+}
+
+#typed-text {
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes buttonPull {
+    to {
+        transform: scale(0.1) rotate(360deg);
+        opacity: 0;
+    }
+}

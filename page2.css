@@ -1,0 +1,125 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: #000000;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 银河效果 */
+.galaxy {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center,
+    transparent 0%,
+    rgba(33, 43, 76, 0.2) 40%,
+    rgba(25, 33, 57, 0.4) 60%,
+    transparent 100%
+    );
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.galaxy::after {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    left: -50%;
+    top: -50%;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 800 800' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter  id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    filter: opacity(0.15) brightness(2);
+    transform: rotate(45deg);
+}
+
+/* 星星层 */
+.stars {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    background: #FFF;
+    border-radius: 50%;
+    opacity: 0;
+    animation: twinkle 3s infinite;
+}
+
+.bubble-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    width: 80%;
+    max-width: 800px;
+    z-index: 1;
+    position: relative;
+}
+
+.bubble {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    color: #FFF;
+    cursor: pointer;
+    transition: transform 0.3s;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.bubble::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.03) 30%,
+    transparent 70%);
+    opacity: 0.3;
+}
+
+.bubble:hover {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0; transform: scale(0.3); }
+    50% { opacity: 0.8; transform: scale(1); }
+}
+
+@keyframes shatter {
+    0% { transform: scale(1); opacity: 1; }
+    20% { transform: scale(1.2); }
+    40% { transform: scale(0.8); }
+    60% { transform: scale(0.4); opacity: 0.5; }
+    100% { transform: scale(0); opacity: 0; }
+}
+
+.shatter-piece {
+    position: absolute;
+    background: radial-gradient(circle at center,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.2));
+    border-radius: 50%;
+    pointer-events: none;
+}

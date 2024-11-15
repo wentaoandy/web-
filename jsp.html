@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>jsp记录你的一切</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #000;
+            color: #FFFFFF;
+            font-family: 'Courier New', Courier, monospace;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        #text-container {
+            font-size: 1.5em;
+            text-align: left;
+            white-space: pre-wrap;
+            display: none;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background: #FFFFFF;
+            margin-left: 5px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+<div id="text-container"></div>
+<button id="nextPageButton" style="display: none;">进入下一阶段</button>
+<script>
+    const text = `    恭喜你来到这里，因为，额......
+    在这里你会看到jsp的九个内置对象！
+    以及在这个简单的网页中起到的功能
+    睁大眼睛，当application为2时就
+    自动返回了哦
+`;
+
+    const textContainer = document.getElementById('text-container');
+    const cursor = document.createElement('div');
+    cursor.classList.add('cursor');
+    textContainer.appendChild(cursor);
+
+    let index = 0;
+    let isTyping = false;
+
+    function startTyping() {
+        isTyping = true;
+        textContainer.style.display = 'block';
+        type();
+    }
+
+    function type() {
+        if (index < text.length) {
+            const char = document.createTextNode(text.charAt(index));
+            textContainer.insertBefore(char, cursor);
+            index++;
+            setTimeout(type, 100);
+        }else{
+            isTyping = false;
+            setTimeout(() => {
+                window.location.href = '1.jsp';
+            }, 3000);
+        }
+    }
+
+
+    startTyping();
+</script>
+</body>
+</html>

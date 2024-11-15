@@ -1,0 +1,90 @@
+body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #e0f7fa, #80deea);
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 中心圆形样式 */
+.demo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+}
+
+/* 按钮通用样式 */
+.button {
+    position: absolute;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    font-size: 14px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    transform-origin: center;
+    transform: translate(-50%, -50%);
+}
+
+/* Reset按钮样式 */
+.reset-button {
+    background-color: #ff4444;
+    color: white;
+}
+
+/* Jump按钮样式 */
+.jump-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* 属性按钮样式 */
+.property-button {
+    background-color: white;
+    border: 2px solid #ccc;
+    color: #333;
+}
+
+/* 统一的悬停效果 - 整体放大1.1倍 */
+.button:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.reset-button:hover {
+    background-color: #ff2222;
+}
+
+.jump-button:hover {
+    background-color: #45a049;
+}
+
+.property-button:hover {
+    border-color: #4a90e2;
+}

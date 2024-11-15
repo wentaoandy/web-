@@ -1,0 +1,153 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    color: #FFFFFF;
+    font-family: 'Courier New', Courier, monospace;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#countdown {
+    font-size: 1.5em;
+    text-align: left;
+    white-space: pre-wrap;
+    display: none;
+}
+
+
+#text-container{
+    font-size: 1.5em;
+    text-align: left;
+    white-space: pre-wrap;
+    display: none;
+}
+
+/*#click-text-container {*/
+/*    font-size: 1.5em;*/
+/*    text-align: left;*/
+/*    white-space: pre-wrap;*/
+/*    display: none;*/
+/*    max-height: 80vh; !* 限制高度为视口高度的80% *!*/
+/*    overflow-y: auto; !* 添加垂直滚动条 *!*/
+/*    overflow-x: hidden; !* 隐藏水平滚动条 *!*/
+/*    line-height: 1.2; !* 设置行间距为1.2倍字体大小 *!*/
+/*}*/
+#clickTextContainer p,
+#clickTextContainer ul,
+#clickTextContainer li {
+    margin: 0; /* 移除默认外边距 */
+    padding: 0; /* 移除默认内边距 */
+    line-height: 1.1; /* 设定行间距 */
+}
+
+
+#click-text-container {
+    font-size: 1.2em; /* 调整字体大小 */
+    text-align: left;
+    white-space: normal;
+    display: none;
+    max-height: 80vh;
+    max-width: 90vw; /* 增加宽度 */
+    overflow-y: auto;
+    overflow-x: hidden;
+    line-height: 1.1; /* 减小行间距 */
+}
+
+
+
+.countdown-segment {
+    position: relative;
+    width: 50px;
+    height: 100px;
+    margin: 10px auto;
+}
+
+.horizontal-line {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 4px;
+    background: #FFFFFF;
+}
+
+.vertical-line {
+    position: absolute;
+    width: 4px;
+    background: #FFFFFF;
+}
+
+.number-1 .vertical-line {
+    height: 92px;
+    top: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.number-2 .horizontal-line {
+    transition: all 0.3s ease;
+}
+
+.number-2 .top-line {
+    top: 0;
+}
+
+.number-2 .middle-line {
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.number-2 .bottom-line {
+    bottom: 0;
+}
+
+.number-2 .top-vertical {
+    height: 46px;
+    top: 4px;
+    right: 10px;
+}
+
+.number-2 .bottom-vertical {
+    height: 46px;
+    bottom: 4px;
+    left: 10px;
+}
+
+.number-3 .vertical-line {
+    height: 92px;
+    top: 4px;
+    right: 10px;
+}
+
+.number-3 .top-line {
+    top: 0;
+}
+
+.number-3 .middle-line {
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.number-3 .bottom-line {
+    bottom: 0;
+}
+
+.cursor {
+    display: inline-block;
+    width: 10px;
+    height: 20px;
+    background: #FFFFFF;
+    margin-left: 5px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}

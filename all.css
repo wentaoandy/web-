@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    color: #FFFFFF;
+    font-family: 'Courier New', Courier, monospace;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#text-container {
+    font-size: 1.5em;
+    text-align: left;
+    white-space: pre-wrap;
+    display: none;
+}
+
+#click-text-container {
+    font-size: 1.2em;
+    text-align: left;
+    white-space: normal;
+    display: none;
+    max-height: 80vh;
+    max-width: 90vw;
+    overflow-y: auto;
+    overflow-x: hidden;
+    line-height: 1.1;
+}
+
+#clickTextContainer p,
+#clickTextContainer ul,
+#clickTextContainer li {
+    margin: 0;
+    padding: 0;
+    line-height: 1.1;
+}
+
+.cursor {
+    display: inline-block;
+    width: 10px;
+    height: 20px;
+    background: #FFFFFF;
+    margin-left: 5px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
